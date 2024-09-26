@@ -40,7 +40,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>To-Do List</Text>
+      <Text style={styles.title}>Activity List</Text>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
