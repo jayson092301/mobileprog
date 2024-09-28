@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, View, Text, TextInput, Button, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';  // Import Icon library
+import styles from './styles';
 
 const App = () => {
   const [task, setTask] = useState('');
@@ -29,10 +30,10 @@ const App = () => {
       <Text style={styles.taskText}>{item.text}</Text>
       <View style={styles.iconContainer}>
         <TouchableOpacity onPress={() => editTask(item.id)} style={styles.iconButton}>
-          <Icon name="edit" size={24} color="blue" />
+          <Icon name="edit" size={24} color="#1E201E" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => deleteTask(item.id)} style={styles.iconButton}>
-          <Icon name="delete" size={24} color="red" />
+          <Icon name="delete" size={24} color="#1E201E" />
         </TouchableOpacity>
       </View>
     </View>
@@ -48,7 +49,7 @@ const App = () => {
           value={task}
           onChangeText={(text) => setTask(text)}
         />
-        <Button title="Add" onPress={addTask} />
+        <Button title="Add" color = '#3C3D37' onPress={addTask} />
       </View>
       <FlatList
         data={tasks}
@@ -60,49 +61,6 @@ const App = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#f9f9f9',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    marginBottom: 20,
-  },
-  input: {
-    flex: 1,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    padding: 10,
-    marginRight: 10,
-    borderRadius: 5,
-  },
-  list: {
-    marginTop: 20,
-  },
-  taskContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 15,
-    borderBottomColor: '#ccc',
-    borderBottomWidth: 1,
-  },
-  taskText: {
-    fontSize: 18,
-  },
-  iconContainer: {
-    flexDirection: 'row',
-  },
-  iconButton: {
-    marginLeft: 10,
-  },
-});
+
 
 export default App;
